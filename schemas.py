@@ -1,11 +1,12 @@
 from datetime import date
+from typing import Optional
 
 from pydantic import BaseModel
 
 
 class AuthorBase(BaseModel):
     name: str
-    bio: str
+    bio: Optional[str] = None
 
 
 class AuthorCreate(AuthorBase):
@@ -21,7 +22,7 @@ class Author(AuthorBase):
 
 class BookBase(BaseModel):
     title: str
-    summary: str
+    summary: Optional[str] = None
     publication_date: date
 
 
